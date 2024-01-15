@@ -1,9 +1,53 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\js\**" />
+    <Content Remove="wwwroot\js\**" />
+    <EmbeddedResource Remove="wwwroot\js\**" />
+    <None Remove="wwwroot\js\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\~/assets\.DS_Store" />
+    <None Include="wwwroot\~/assets\fonts\LineIcons.svg" />
+    <None Include="wwwroot\~/assets\fonts\LineIcons.woff2" />
+    <None Include="wwwroot\~/assets\images\.DS_Store" />
+    <None Include="wwwroot\~/assets\images\ayroui.svg" />
+    <None Include="wwwroot\~/assets\images\client-logo\ayroui.svg" />
+    <None Include="wwwroot\~/assets\images\client-logo\ecomhtml.svg" />
+    <None Include="wwwroot\~/assets\images\client-logo\graygrids.svg" />
+    <None Include="wwwroot\~/assets\images\client-logo\lineicons.svg" />
+    <None Include="wwwroot\~/assets\images\client-logo\tailwindtemplates.svg" />
+    <None Include="wwwroot\~/assets\images\client-logo\uideck.svg" />
+    <None Include="wwwroot\~/assets\images\favicon.svg" />
+    <None Include="wwwroot\~/assets\images\logo.svg" />
+    <None Include="wwwroot\~/assets\images\white-logo.svg" />
+    <None Include="wwwroot\~/assets\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\~/assets\js\glightbox.min.js" />
+    <None Include="wwwroot\~/assets\js\main.js" />
+    <None Include="wwwroot\~/assets\js\tiny-slider.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
 
 </Project>
