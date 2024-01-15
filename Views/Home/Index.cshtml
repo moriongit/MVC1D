@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MVC1.ViewModels.HomeVM
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -28,7 +29,7 @@
             </div>
             <div class="col-lg-6 col-md-12 col-12">
                 <div class="header-image">
-                    <img src="assets/images/header/hero-image.jpg" alt="#" />
+                    <img src="~/assets/images/header/hero-image.jpg" alt="#" />
                 </div>
             </div>
         </div>
@@ -473,78 +474,33 @@
     <!--======  End Section Title Five ======-->
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single News -->
-                <div class="single-news">
-                    <div class="image">
-                        <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/1.jpg" alt="Blog" /></a>
-                        <div class="meta-details">
-                            <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
-                            <span>BY TIM NORTON</span>
+            @foreach (var item in Model.News)
+            {
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single News -->
+                    <div class="single-news">
+                        <div class="image">
+                            <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/1.jpg" alt="Blog" /></a>
+                            <div class="meta-details">
+                                <img class="thumb" src=@item.ImgUrl alt="Author" />
+                                <span>@item.Author</span>
+                            </div>
+                        </div>
+                        <div class="content-body">
+                            <h4 class="title">
+                                <a href="javascript:void(0)"> @item.Title </a>
+                            </h4>
+                            <p>
+                                @item.Description
+                            </p>
                         </div>
                     </div>
-                    <div class="content-body">
-                        <h4 class="title">
-                            <a href="javascript:void(0)"> Make your team a Design driven company </a>
-                        </h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's
-                            standard.
-                        </p>
-                    </div>
+                    <!-- End Single News -->
                 </div>
-                <!-- End Single News -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single News -->
-                <div class="single-news">
-                    <div class="image">
-                        <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/2.jpg" alt="Blog" /></a>
-                        <div class="meta-details">
-                            <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
-                            <span>BY TIM NORTON</span>
-                        </div>
-                    </div>
-                    <div class="content-body">
-                        <h4 class="title">
-                            <a href="javascript:void(0)">
-                                The newest web framework that changed the world
-                            </a>
-                        </h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's
-                            standard.
-                        </p>
-                    </div>
-                </div>
-                <!-- End Single News -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single News -->
-                <div class="single-news">
-                    <div class="image">
-                        <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/3.jpg" alt="Blog" /></a>
-                        <div class="meta-details">
-                            <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
-                            <span>BY TIM NORTON</span>
-                        </div>
-                    </div>
-                    <div class="content-body">
-                        <h4 class="title">
-                            <a href="javascript:void(0)">
-                                5 ways to improve user retention for your startup
-                            </a>
-                        </h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's
-                            standard.
-                        </p>
-                    </div>
-                </div>
-                <!-- End Single News -->
+            }
+            
+
+           
             </div>
         </div>
     </div>

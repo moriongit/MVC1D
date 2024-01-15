@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MVC1.Context;
 using MVC1.Models;
+using MVC1.ViewModels;
 using System.Diagnostics;
 
 namespace MVC1.Controllers
@@ -13,11 +14,19 @@ namespace MVC1.Controllers
         {
             dbContext= _dbcontext;
         }
-        public IActionResult Index()
-        {
-            
-            return View();
-        }
         
+        public async Task<ActionResult> Index()
+        {
+            if (ModelState.IsValid)
+            {
+                var homevm = new HomeVM();
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    Authors = model.Authors,
+                };
+
+                
+
     }
 }
