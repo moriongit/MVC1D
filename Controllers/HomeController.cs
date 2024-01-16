@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MVC1.Context;
 using MVC1.Models;
 using MVC1.ViewModels;
+using MVC1.ViewModels.HomeVM;
 using System.Diagnostics;
 
 namespace MVC1.Controllers
@@ -14,19 +15,22 @@ namespace MVC1.Controllers
         {
             dbContext= _dbcontext;
         }
-        
-        public async Task<ActionResult> Index()
+
+        public async Task<IActionResult> Index()
         {
-            if (ModelState.IsValid)
+            HomeVM vm = new HomeVM
             {
-                var homevm = new HomeVM();
+                News = await _dbcontext.News.Select(s => new NewsListItemVM
                 {
-                    Title = model.Title,
-                    Description = model.Description,
-                    Authors = model.Authors,
-                };
-
-                
-
+                    Title = s.Title,
+                    Description = s.Description,    
+                    ImgUrl = s.ImgUrl,
+                    Author = s.Author,
+                }).ToListAsync(),
+               
+            };
+            return View(vm);
+        }
     }
+
 }

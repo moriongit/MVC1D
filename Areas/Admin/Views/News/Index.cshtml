@@ -6,10 +6,17 @@
     ViewBag.Title = "Index";
 
 }
+@section styles{
+    <link href="~/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+@section scripts{
+    <script src="~/admin/js/demo/datatables-demo.js"></script>
 
+}
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">News</h6>
+        <a href="~/Admin/News/Create" class="btn btn-outline-success">Create</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -20,24 +27,23 @@
                         <th>Description</th>
                         <th>Author</th>
                         <th>ImgUrl</th>
-                        
+                        <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                       
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td><img width="200px" src="@item.ImgUrl" /></td>
+                           
+                            <td class="text-center"><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+                            <td class="text-center"><a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+
+                        </tr>
+                    }
                     
                 </tbody>
             </table>

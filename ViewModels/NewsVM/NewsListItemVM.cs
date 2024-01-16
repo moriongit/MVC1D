@@ -1,17 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace MVC1.ViewModels
+namespace MVC1.ViewModels.NewsVM
 {
     public class NewsListItemVM
     {
-        [MaxLength(60), NotNull, MinLength(5)]
+        public int Id { get; set; }
         public string Title { get; set; }
-        [Required]
-        [MaxLength(128), NotNull, MinLength(5)]
+       
         public string Description { get; set; }
-        [Required]
-        [MaxLength(32), NotNull, MinLength(5)]
+       
         public string Author { get; set; }
 
 
