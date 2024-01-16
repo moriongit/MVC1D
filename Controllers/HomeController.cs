@@ -4,6 +4,7 @@ using MVC1.Context;
 using MVC1.Models;
 using MVC1.ViewModels;
 using MVC1.ViewModels.HomeVM;
+using MVC1.ViewModels.NewsVM;
 using System.Diagnostics;
 
 namespace MVC1.Controllers

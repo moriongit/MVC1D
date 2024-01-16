@@ -1,4 +1,6 @@
-﻿namespace MVC1.ViewModels.HomeVM
+﻿using MVC1.ViewModels.NewsVM;
+
+namespace MVC1.ViewModels.HomeVM
 {
     public class HomeVM
     {
